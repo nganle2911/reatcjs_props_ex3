@@ -1,0 +1,48 @@
+/* SHOESSHOP */
+.shoesShop .navbar {
+    background-color: #222F4F;
+}
+
+.shoesShop .navbar .container .navbar-brand {
+    color: #ECEBEF;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.7rem;
+}
+
+.shoesShop .navbar .container .collapse {
+    justify-content: end;
+}
+
+.shoesShop .navbar .container .collapse .navbar-nav .nav-link {
+    color: #ECEBEF;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-left: 1rem;
+    transform: scale(1);
+    transition: all .3s ease-in-out;
+}
+
+.shoesShop .navbar .container .collapse .navbar-nav .nav-link:hover {
+    transform: scale(1.2);
+    color: #D0D3E3;
+}
+
+
+/* LISTSHOES */
+.listShoes .col-3 .card .card-body .card-title {
+    text-align: start;
+}
+
+.listShoes .col-3 .card .card-body .card-text {
+    text-align: start;
+}
+
+.listShoes .col-3 .card .card-body .btn-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.listShoes .col-3 .card .card-body .btn-footer .btnAdd {
+    margin: 0;
+}
