@@ -5,14 +5,15 @@ export default class ListShoes extends Component {
 
   // TODO: Render listShoes 
   renderListShoes = () => {
-    let { listShoes } = this.props;
+    let { listShoes, handleAddToCart } = this.props;
 
     return listShoes.map((item, index) => {
-      return <ItemShoes key={index} item={item} />
+      return <ItemShoes handleAddToCart={handleAddToCart} key={index} item={item} />
     });
   }
 
   render() {
+    // console.log("ListShoes", this.props);
     return (
       <div className='listShoes row'>
         {this.renderListShoes()}

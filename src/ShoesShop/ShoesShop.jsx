@@ -7,7 +7,17 @@ import "./style.css";
 export default class ShoesShop extends Component {
     state = {
         listShoes: shoesArr,
-        cart: shoesArr[0]
+        cart: []
+    }
+
+    // TODO: Handle add to cart
+    handleAddToCart = (shoes) => {
+        // console.log("shoes", shoes);
+        let cloneCart = [...this.state.cart]; 
+        cloneCart.push(shoes);
+        
+        this.setState({cart: cloneCart});
+        // console.log("cloneCart", cloneCart); 
     }
 
     render() {
@@ -32,8 +42,8 @@ export default class ShoesShop extends Component {
                 {/* LIST SHOES */}
                 <div className='container mt-3'>
                     <h1>Products List</h1>
-                    <ListShoes listShoes={this.state.listShoes} />
-                    <CartShoes />
+                    <ListShoes handleAddToCart={this.handleAddToCart} listShoes={this.state.listShoes} />
+                    <CartShoes cart={this.state.cart} />
                 </div>
             </div>
         )

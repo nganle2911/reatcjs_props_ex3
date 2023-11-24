@@ -12,7 +12,8 @@ export default class ItemShoes extends Component {
     };
 
     render() {
-        let { item } = this.props;
+        // console.log("ItemShoes", this.props);
+        let { item, handleAddToCart } = this.props;
 
         return (
             <>
@@ -24,7 +25,9 @@ export default class ItemShoes extends Component {
                             <p className="card-text">{this.checkDescriptionLength(item.shortDescription, 50)}</p>
                             <div className='btn-footer'>
                                 <a href="#" className="btnView btn btn-secondary">View Detail</a>
-                                <a href="#" className="btnAdd btn btn-primary">Add to Cart</a>
+                                <a className="btnAdd btn btn-primary" onClick={() => {
+                                    handleAddToCart(item);
+                                }}>Add to Cart</a>
                             </div>
                         </div>
                     </div>

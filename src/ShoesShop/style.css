@@ -46,3 +46,19 @@
 .listShoes .col-3 .card .card-body .btn-footer .btnAdd {
     margin: 0;
 }
+
+/* OFFCANVAS */
+.cartRight .offcanvas {
+    width: 40%;
+}
+
+.cartRight .offcanvas .offcanvas-header .offcanvas-title {
+    font-size: 2rem;
+    color: #222F4F;
+}
+
+.cartRight .offcanvas .offcanvas-body .table .thead_customBg tr th {
+    background: #D4DFE9;
+    color: #222F4F;
+    text-transform: capitalize;
+}
