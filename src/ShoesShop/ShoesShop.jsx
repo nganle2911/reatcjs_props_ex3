@@ -40,8 +40,28 @@ export default class ShoesShop extends Component {
     }
 
     // TODO: Handle view detail shoes
-    handleViewDetail = (shoes) => {
-        this.setState({ selectedShoes: shoes });
+    handleViewDetail = (itemId) => {
+        let selectedItem = this.state.listShoes.find((shoes) => {
+            return shoes.id == itemId;
+        });
+        this.setState({selectedShoes: selectedItem});
+
+        // use bootstrap modal to show the details
+        const myModal = document.getElementById("myModal");
+        if (myModal) {
+            myModal.classList.add("show");
+            myModal.style.display = "block";
+        }
+    }
+
+    // TODO: Handle close modal
+    handleClose = () => {
+        const myModal = document.getElementById("myModal");
+        if (myModal) {
+            myModal.classList.remove("show");
+            myModal.style.display = "none";
+        }
+        this.setState({selectedShoes: null});
     }
 
     render() {
@@ -66,7 +86,7 @@ export default class ShoesShop extends Component {
                 {/* LIST SHOES */}
                 <div className='container mt-3'>
                     <h1>Products List</h1>
-                    <ListShoes handleViewDetail={this.handleViewDetail} handleAddToCart={this.handleAddToCart} listShoes={this.state.listShoes} />
+                    <ListShoes handleClose={this.handleClose} selectedShoes={this.state.selectedShoes} handleViewDetail={this.handleViewDetail} handleAddToCart={this.handleAddToCart} listShoes={this.state.listShoes} />
                     <CartShoes cart={this.state.cart} handleDeleteInCart={this.handleDeleteInCart} />
                 </div>
             </div>

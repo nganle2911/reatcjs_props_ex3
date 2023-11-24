@@ -5,10 +5,10 @@ export default class ListShoes extends Component {
 
   // TODO: Render listShoes 
   renderListShoes = () => {
-    let { listShoes, handleAddToCart, handleViewDetail } = this.props;
+    let { listShoes, handleAddToCart, handleViewDetail, selectedShoes, handleClose } = this.props;
 
     return listShoes.map((item, index) => {
-      return <ItemShoes handleViewDetail={handleViewDetail} handleAddToCart={handleAddToCart} key={index} item={item} />
+      return <ItemShoes handleClose={handleClose} selectedShoes={selectedShoes} handleViewDetail={handleViewDetail} handleAddToCart={handleAddToCart} key={index} item={item} />
     });
   }
 
