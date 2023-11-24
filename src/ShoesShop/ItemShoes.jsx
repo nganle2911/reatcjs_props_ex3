@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ModalDetail from './ModalDetail';
 
 export default class ItemShoes extends Component {
 
@@ -7,13 +8,13 @@ export default class ItemShoes extends Component {
         if (description.length > maxLen) {
             return description.substring(0, maxLen) + "...";
         } else {
-            return description; 
+            return description;
         }
     };
 
     render() {
         // console.log("ItemShoes", this.props);
-        let { item, handleAddToCart } = this.props;
+        let { item, handleAddToCart, handleViewDetail } = this.props;
 
         return (
             <>
@@ -22,9 +23,13 @@ export default class ItemShoes extends Component {
                         <img src={item.image} className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title">{this.checkDescriptionLength(item.name, 20)}</h5>
-                            <p className="card-text">{this.checkDescriptionLength(item.shortDescription, 50)}</p>
+                            <p className="card-text">{this.checkDescriptionLength(item.description, 50)}</p>
                             <div className='btn-footer'>
-                                <a href="#" className="btnView btn btn-secondary">View Detail</a>
+                                <a className="btnView btn btn-secondary" data-bs-toggle="modal" data-bs-target="#myStaticModal" onClick={() => {
+                                    handleViewDetail(item);
+                                }}>View Detail</a>
+                                {/* MODAL */}
+                                <ModalDetail item={item}/>
                                 <a className="btnAdd btn btn-primary" onClick={() => {
                                     handleAddToCart(item);
                                 }}>Add to Cart</a>
@@ -32,6 +37,8 @@ export default class ItemShoes extends Component {
                         </div>
                     </div>
                 </div>
+
+                
             </>
         )
     }

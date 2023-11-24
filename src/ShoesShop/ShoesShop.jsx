@@ -7,7 +7,8 @@ import "./style.css";
 export default class ShoesShop extends Component {
     state = {
         listShoes: shoesArr,
-        cart: []
+        cart: [],
+        selectedShoes: null
     }
 
     // TODO: Handle add to cart
@@ -38,6 +39,11 @@ export default class ShoesShop extends Component {
         this.setState({ cart: newCart });
     }
 
+    // TODO: Handle view detail shoes
+    handleViewDetail = (shoes) => {
+        this.setState({ selectedShoes: shoes });
+    }
+
     render() {
         return (
             <div className='shoesShop'>
@@ -60,7 +66,7 @@ export default class ShoesShop extends Component {
                 {/* LIST SHOES */}
                 <div className='container mt-3'>
                     <h1>Products List</h1>
-                    <ListShoes handleAddToCart={this.handleAddToCart} listShoes={this.state.listShoes} />
+                    <ListShoes handleViewDetail={this.handleViewDetail} handleAddToCart={this.handleAddToCart} listShoes={this.state.listShoes} />
                     <CartShoes cart={this.state.cart} handleDeleteInCart={this.handleDeleteInCart} />
                 </div>
             </div>
