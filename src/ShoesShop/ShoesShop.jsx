@@ -14,10 +14,28 @@ export default class ShoesShop extends Component {
     handleAddToCart = (shoes) => {
         // console.log("shoes", shoes);
         let cloneCart = [...this.state.cart]; 
-        cloneCart.push(shoes);
         
-        this.setState({cart: cloneCart});
-        // console.log("cloneCart", cloneCart); 
+        // check if shoes existed in cart
+        let index = cloneCart.findIndex(item => item.id == shoes.id);
+        if (index == -1) {
+            // create new object containing quantity & amount
+            let newShoes = {...shoes, quantity: 1, amount: shoes.price};
+            cloneCart = [...cloneCart, newShoes];
+        } else {
+            // update quantity & amount of shoes
+            cloneCart[index].quantity++;
+            cloneCart[index].amount = cloneCart[index].price * cloneCart[index].quantity; 
+        }
+
+        this.setState({ cart: cloneCart });
+    }
+
+    // TODO: Handle delete shoes in cart
+    handleDeleteInCart = (itemId) => {
+        let newCart = this.state.cart.filter((item) => {
+            return item.id != itemId;
+        }); 
+        this.setState({ cart: newCart });
     }
 
     render() {
@@ -43,7 +61,7 @@ export default class ShoesShop extends Component {
                 <div className='container mt-3'>
                     <h1>Products List</h1>
                     <ListShoes handleAddToCart={this.handleAddToCart} listShoes={this.state.listShoes} />
-                    <CartShoes cart={this.state.cart} />
+                    <CartShoes cart={this.state.cart} handleDeleteInCart={this.handleDeleteInCart} />
                 </div>
             </div>
         )

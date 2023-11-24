@@ -4,22 +4,23 @@ export default class CartShoes extends Component {
 
   // TODO: Render cart
   renderCart = () => {
-    let { cart } = this.props; 
+    let { cart, handleDeleteInCart } = this.props;
     return cart.map((item, index) => {
       return <tr key={index}>
         <td>{item.id}</td>
         <td>{item.name}</td>
         <td><img src={item.image} width={50} /></td>
         <td>${item.price}</td>
-        <td>1</td>
-        <td>$150</td>
-        <td><i class="bi bi-trash3"></i></td>
+        <td>{item.quantity}</td>
+        <td><strong>${item.amount}</strong></td>
+        <td onClick={() => {
+          handleDeleteInCart(item.id);
+        }}><i class="bi bi-trash3 text-danger"></i></td>
       </tr>
     })
   }
 
   render() {
-    // console.log("CartShoes", this.props);
     return (
       <div className='cartRight'>
         <div className="offcanvas offcanvas-end" tabIndex={-1} id="offcanvasRight" aria-labelledby="offcanvasRightLabel">

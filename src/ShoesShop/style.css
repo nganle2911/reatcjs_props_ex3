@@ -43,8 +43,27 @@
     justify-content: space-between;
 }
 
+.listShoes .col-3 .card .card-body .btn-footer .btn {
+    transition: all .3s ease-in-out;
+}
+
+.listShoes .col-3 .card .card-body .btn-footer .btn:hover {
+    transform: translateY(5px);
+}
+
+.listShoes .col-3 .card .card-body .btn-footer .btnView {
+    background-color: #BED0DF;
+    border-color: #BED0DF;
+    color: #222F4F;
+    font-weight: 500;
+}
+
 .listShoes .col-3 .card .card-body .btn-footer .btnAdd {
     margin: 0;
+    background-color: #222F4F;
+    border-color: #222F4F;
+    font-weight: 500;
+    color: #ECEBEF;
 }
 
 /* OFFCANVAS */
@@ -62,3 +81,5 @@
     color: #222F4F;
     text-transform: capitalize;
 }
+
+
